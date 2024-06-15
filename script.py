@@ -17,9 +17,6 @@ async def main():
     await page.save_screenshot(f"/opt/wd/nowsecure_{datetime.now().isoformat()}.jpg")
     await page.get_content()
     await page.scroll_down(150)
-    elems = await page.select_all("*[src]")
-    for elem in elems:
-        await elem.flash()
 
     print("next page")
     page2 = await browser.get("https://twitter.com", new_tab=True)
