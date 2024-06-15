@@ -169,9 +169,9 @@ pkg_tar(
 )
 
 pkg_tar(
-    name = "meeting_bot_tar",
+    name = "script_tar",
     srcs = [
-        "//meeting_bot",
+        "//script,
     ],
     include_runfiles = True,
     strip_prefix = ".",
@@ -190,7 +190,7 @@ oci_image(
         ":group",
         ":home",
         ":packages_tar",
-        "//:script",
+        ":script_tar",
     ],
 )
 
