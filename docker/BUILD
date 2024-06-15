@@ -190,6 +190,7 @@ oci_image(
         ":group",
         ":home",
         ":packages_tar",
+        "//:script",
     ],
 )
 

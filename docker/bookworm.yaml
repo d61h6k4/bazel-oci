@@ -34,3 +34,4 @@ packages:
   - "chromium-driver"
   - "sudo"
   - "python3"
+  - "ffmpeg"
