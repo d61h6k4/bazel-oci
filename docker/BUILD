@@ -137,6 +137,7 @@ PACKAGES = [
     "@bookworm//chromium-driver",
     "@bookworm//sudo",
     "@bookworm//python3",
+    "@bookworm//ffmpeg",
 ]
 
 # Creates /var/lib/dpkg/status with installed package information.
@@ -198,7 +199,7 @@ oci_tarball(
     name = "tarball",
     image = ":apt",
     repo_tags = [
-        "distroless/test:latest",
+        "distroless/script:latest",
     ],
 )
 
