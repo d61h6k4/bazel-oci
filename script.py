@@ -1,13 +1,11 @@
 from datetime import datetime
 import nodriver as uc
-import time
 import os
 import subprocess
 from pathlib import Path
 
 
 async def main():
-    time.sleep(5)
     try:
         browser = await uc.start()
     except:
@@ -23,6 +21,7 @@ async def main():
     for elem in elems:
         await elem.flash()
 
+    print("next page")
     page2 = await browser.get("https://twitter.com", new_tab=True)
     await page2.save_screenshot(f"/opt/wd/twitter_{datetime.now().isoformat()}.jpg")
     page3 = await browser.get(
