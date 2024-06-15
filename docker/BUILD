@@ -171,7 +171,7 @@ pkg_tar(
 pkg_tar(
     name = "script_tar",
     srcs = [
-        "//script,
+        "//:script,
     ],
     include_runfiles = True,
     strip_prefix = ".",
