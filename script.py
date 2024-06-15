@@ -16,7 +16,7 @@ async def main():
     print("browser is working")
     page = await browser.get("https://www.nowsecure.nl")
 
-    await page.save_screenshot(f"/opt/wd/nowsecure_{datetime.now().isoformat()}")
+    await page.save_screenshot(f"/opt/wd/nowsecure_{datetime.now().isoformat()}.jpg")
     await page.get_content()
     await page.scroll_down(150)
     elems = await page.select_all("*[src]")
@@ -24,9 +24,11 @@ async def main():
         await elem.flash()
 
     page2 = await browser.get("https://twitter.com", new_tab=True)
+    await page2.save_screenshot(f"/opt/wd/twitter_{datetime.now().isoformat()}.jpg")
     page3 = await browser.get(
         "https://github.com/ultrafunkamsterdam/nodriver", new_window=True
     )
+    await page3.save_screenshot(f"/opt/wd/repo_{datetime.now().isoformat()}.jpg")
 
     for p in (page, page2, page3):
         await p.bring_to_front()
