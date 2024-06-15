@@ -180,7 +180,7 @@ pkg_tar(
 oci_image(
     name = "apt",
     base = "@distroless_base",
-    # entrypoint = ["/meeting_bot/meeting_bot"],
+    entrypoint = ["/script"],
     env = {
         "DISPLAY": ":0",
     },
