@@ -137,7 +137,6 @@ PACKAGES = [
     "@bookworm//chromium-driver",
     "@bookworm//sudo",
     "@bookworm//python3",
-    "@bookworm//ffmpeg",
 ]
 
 # Creates /var/lib/dpkg/status with installed package information.

@@ -57,6 +57,8 @@ if __name__ == "__main__":
     ret_code = p.poll()
     if ret_code is None:
         print({"message": "xvfb is running"})
+    else:
+        print(f"xvfb return code is {ret_code}")
 
     print("\n### Starting fluxbox...")
 
@@ -68,34 +70,11 @@ if __name__ == "__main__":
     ret_code = p1.poll()
     if ret_code is None:
         print({"message": "fluxbox is running"})
-
-    print("\n### Starting ffmpeg...")
-
-    p2 = subprocess.Popen(
-        [
-            "ffmpeg",
-            "-video_size",
-            "1720x880",
-            "-framerate",
-            "25",
-            "-f",
-            "x11grab",
-            "-i",
-            ":0.0+100,200",
-            "/opt/wd/output.mp4",
-        ],
-        close_fds=False,
-    )
-
-    ret_code = p2.poll()
-    if ret_code is None:
-        print({"message": "ffmpegis running"})
+    else:
+        print(f"fluxbox return code is {ret_code}")
 
     # since asyncio.run never worked (for me)
     uc.loop().run_until_complete(main())
 
-    p2.terminate()
-    p2.wait(5)
-    print("ffmpeg done")
     p1.terminate()
     p.terminate()
